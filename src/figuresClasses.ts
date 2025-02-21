@@ -17,7 +17,7 @@ export class Triangle implements Figure {
     public readonly shape: Shape = 'triangle',
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('incorrect data');
+      throw new Error('Side lengths must be greater than zero');
     }
 
     if (
@@ -25,7 +25,10 @@ export class Triangle implements Figure {
       (a + c <= b && b > a && b > c) ||
       (c + b <= a && a > b && a > c)
     ) {
-      throw new Error('incorrect data');
+      throw new Error(
+        'The longest side of a triangle must be ' +
+          'less than the sum of the other two sides',
+      );
     }
   }
 
@@ -49,7 +52,7 @@ export class Circle implements Figure {
     public readonly shape: Shape = 'circle',
   ) {
     if (radius <= 0) {
-      throw new Error('incorrect data');
+      throw new Error('Radius length must be greater than zero');
     }
   }
 
@@ -68,7 +71,7 @@ export class Rectangle implements Figure {
     public readonly shape: Shape = 'rectangle',
   ) {
     if (width <= 0 || height <= 0) {
-      throw new Error('incorrect data');
+      throw new Error('Width and height lengths must be greater than zero');
     }
   }
 
